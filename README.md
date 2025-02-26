@@ -1,6 +1,6 @@
 # PayTech Next.js SDK
 
-Un **hook React (`usePayTech`)** pour gérer facilement les paiements avec **PayTech** dans une application **Next.js**.
+Un hook React (`usePayTech`) pour gérer facilement les paiements avec **PayTech** dans une application **Next.js**.
 
 ## 🚀 Installation
 
