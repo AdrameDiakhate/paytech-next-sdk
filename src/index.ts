@@ -1,0 +1,1 @@
+import { usePayTech } from './usePayTech';

@@ -1,0 +1,28 @@
+{
+    "name": "paytech-next-sdk",
+    "version": "1.0.3",
+    "description": "A React hook to integrate PayTech into a Next.js application",
+    "main": "dist/usePayTech.js",
+    "types": "dist/usePayTech.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "prepare": "npm run build",
+        "test": "jest"
+    },
+    "keywords": [
+        "paytech",
+        "nextjs",
+        "react",
+        "payment",
+        "hook"
+    ],
+    "author": "Adramé Diakhaté",
+    "license": "MIT",
+    "dependencies": {
+        "react": "^19.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^19.0.10",
+        "typescript": "^5.0.0"
+    }
+}
