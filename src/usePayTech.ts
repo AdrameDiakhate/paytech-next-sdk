@@ -51,11 +51,12 @@ export const usePayTech = (apiKey: string, apiSecret: string) => {
       if (jsonResponse.success === 1 && jsonResponse.redirect_url) {
         setData(jsonResponse);
         return jsonResponse.redirect_url;
-      } 
+      }
 
-      setError(jsonResponse.message || "Échec du paiement.");
+      const errorMessage = jsonResponse.error || jsonResponse.message || "Échec du paiement.";
+      setError(errorMessage);
       return null;
-      
+
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erreur inconnue.");
       return null;
