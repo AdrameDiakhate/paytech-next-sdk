@@ -1,25 +1,23 @@
+# PayTech Next.js SDK
 
-PayTech Next.js SDK
-Un hook React (usePayTech) pour gérer facilement les paiements avec PayTech dans une application Next.js.
+Un hook React (`usePayTech`) pour gérer facilement les paiements avec PayTech dans une application Next.js.
 
-🚀 Installation
-sh
-Copier
-Modifier
+## 🚀 Installation
+
+```bash
 npm install paytech-react-hooks
-📌 Utilisation
-Ajoutez vos clés API PayTech dans un fichier .env.local :
 
-env
-Copier
-Modifier
+📌 Utilisation
+
+1. Ajouter vos clés API PayTech
+Ajoutez vos clés API PayTech dans un fichier .env.local
+
 NEXT_PUBLIC_PAYTECH_API_KEY=VOTRE_API_KEY
 NEXT_PUBLIC_PAYTECH_API_SECRET=VOTRE_API_SECRET
-Puis, utilisez le hook dans votre composant React :
 
-tsx
-Copier
-Modifier
+2. Utiliser le hook dans votre composant React
+
+
 "use client";
 
 import { usePayTech } from "paytech-react-hooks";
@@ -55,15 +53,16 @@ const PayButton = () => {
   };
 
   return (
-    <div>
-      <button onClick={handlePayment} disabled={isLoading}>
-        {isLoading ? "Paiement en cours..." : "Payer avec PayTech"}
-      </button>
-      {error && <p className="text-[#FF0000]">{error}</p>}
-    </div>
+    <button onClick={handlePayment}>
+      {isLoading ? "Paiement en cours..." : "Payer avec PayTech"}
+      {error && <p>{error}</p>}
+    </button>
   );
 };
 
 export default PayButton;
+
+
+
 📜 Licence
 MIT © 2025 Adramé Diakhaté
