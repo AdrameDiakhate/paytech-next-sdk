@@ -18,6 +18,7 @@ interface PayTechResponse {
   redirect_url?: string;
   token?: string;
   error?: string;
+  message?: string;
 }
 
 export const usePayTech = (apiKey: string, apiSecret: string) => {
@@ -42,18 +43,17 @@ export const usePayTech = (apiKey: string, apiSecret: string) => {
       });
 
       const jsonResponse = await response.json();
-      console.log("Réponse API PayTech:", jsonResponse);
-
       if (jsonResponse.success && jsonResponse.redirect_url) {
         setData(jsonResponse);
         return jsonResponse.redirect_url;
+      } else if(jsonResponse.success==-1 && jsonResponse.error){
+        return jsonResponse.message;
       } else {
         setError("Échec du paiement.");
         return null;
       }
     } catch (err) {
       setError("Erreur lors de la requête.");
-      console.error("Erreur dans createPayment:", err);
       return null;
     } finally {
       setIsLoading(false);
