@@ -42,11 +42,6 @@ export const usePayTech = (apiKey: string, apiSecret: string) => {
         body: JSON.stringify(params),
       });
 
-      // if (!response.ok) {
-        
-      //   throw new Error(`Erreur HTTP: ${response.status}`);
-      // }
-
       const jsonResponse: PayTechResponse = await response.json();
 
       if (jsonResponse.success === 1 && jsonResponse.redirect_url) {
