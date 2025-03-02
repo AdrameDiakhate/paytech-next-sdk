@@ -27,9 +27,7 @@ const PayButton = () => {
   if (!apiKey || !apiSecret) {
     throw new Error("Les clés API ne sont pas définies !");
   }
-
   const { createPayment, isLoading, error } = usePayTech(apiKey, apiSecret);
-
   const handlePayment = async () => {
     try {
       const paymentLink = await createPayment({
@@ -49,7 +47,6 @@ const PayButton = () => {
       console.error("Erreur lors du paiement :", err);
     }
   };
-
   return (
     <div>
       <button onClick={handlePayment} disabled={isLoading}>
@@ -59,7 +56,6 @@ const PayButton = () => {
     </div>
   );
 };
-
 export default PayButton;
 
 
