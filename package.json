@@ -1,6 +1,6 @@
 {
     "name": "paytech-react-hooks",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "A React hook to integrate PayTech into a Next.js application",
     "main": "dist/usePayTech.js",
     "types": "dist/usePayTech.d.ts",
