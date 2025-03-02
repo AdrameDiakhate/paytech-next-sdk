@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 interface PayTechPaymentParams {
   item_name: string;
@@ -26,7 +26,7 @@ export const usePayTech = (apiKey: string, apiSecret: string) => {
   const [data, setData] = useState<PayTechResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const createPayment = async (params: PayTechPaymentParams): Promise<string | null> => {
+  const createPayment = useCallback(async (params: PayTechPaymentParams): Promise<string | null> => {
     setIsLoading(true);
     setError(null);
 
@@ -42,23 +42,27 @@ export const usePayTech = (apiKey: string, apiSecret: string) => {
         body: JSON.stringify(params),
       });
 
-      const jsonResponse = await response.json();
-      if (jsonResponse.success && jsonResponse.redirect_url) {
+      if (!response.ok) {
+        throw new Error(`Erreur HTTP: ${response.status}`);
+      }
+
+      const jsonResponse: PayTechResponse = await response.json();
+
+      if (jsonResponse.success === 1 && jsonResponse.redirect_url) {
         setData(jsonResponse);
         return jsonResponse.redirect_url;
-      } else if(jsonResponse.success==-1 && jsonResponse.error){
-        return jsonResponse.message;
-      } else {
-        setError("Échec du paiement.");
-        return null;
-      }
+      } 
+
+      setError(jsonResponse.message || "Échec du paiement.");
+      return null;
+      
     } catch (err) {
-      setError("Erreur lors de la requête.");
+      setError(err instanceof Error ? err.message : "Erreur inconnue.");
       return null;
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [apiKey, apiSecret]);
 
   return { createPayment, isLoading, data, error };
 };
