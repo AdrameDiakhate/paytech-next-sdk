@@ -1,11 +1,24 @@
 {
-    "compilerOptions": {
-      "outDir": "dist",
-      "module": "CommonJS",
-      "target": "ES6",
-      "declaration": true,
-      "strict": true
-    },
-    "include": ["src"]
-  }
-  
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "CommonJS",
+    "target": "ES2020",
+    "declaration": true,
+    "strict": true,
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
+    "jsx": "react-jsx",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

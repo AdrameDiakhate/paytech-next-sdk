@@ -1,32 +1,40 @@
 {
-    "name": "paytech-react-hooks",
-    "version": "1.0.7",
-    "description": "A React hook to integrate PayTech into a Next.js application",
-    "main": "dist/usePayTech.js",
-    "types": "dist/usePayTech.d.ts",
-    "scripts": {
-        "build": "tsc",
-        "prepare": "npm run build",
-        "test": "jest"
-    },
-    "keywords": [
-        "paytech",
-        "nextjs",
-        "react",
-        "payment",
-        "hook"
-    ],
-    "author": "Adramé Diakhaté",
-    "license": "MIT",
-    "dependencies": {
-        "react": "^19.0.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AdrameDiakhate/paytech-next-sdk.git"
-    },
-    "devDependencies": {
-        "@types/react": "^19.0.10",
-        "typescript": "^5.0.0"
-    }
+  "name": "paytech-react-hooks",
+  "version": "2.0.0",
+  "description": "Hook React/Next.js pour PayTech. Appelle ton backend — n'expose jamais tes clés API dans le navigateur.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "jest"
+  },
+  "keywords": [
+    "paytech",
+    "nextjs",
+    "react",
+    "hook",
+    "payment",
+    "wave",
+    "orange-money",
+    "senegal"
+  ],
+  "author": "Adramé Diakhaté",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrameDiakhate/paytech-next-sdk.git"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.10",
+    "typescript": "^5.0.0",
+    "react": "^19.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": ">=18"
+  }
 }

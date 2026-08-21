@@ -1,1 +1,6 @@
-import { usePayTech } from './usePayTech';
+export {
+  usePayTech,
+  type CheckoutParams,
+  type CheckoutResponse,
+  type UsePayTechOptions,
+} from "./usePayTech";
